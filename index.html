@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>기흥-화성-평택 노선표</title> <style>
+    <title>시간표</title> <style>
         /* 기본적인 스타일은 여기에 */
         body { 
             font-family: 'Malgun Gothic', '맑은 고딕', sans-serif; 
@@ -183,3 +183,52 @@
                 border-radius: 0 0 10px 10px; /* 하단 모서리만 둥글게 */
                 padding-top: 10px; /* 노선도 상단에 약간의 패딩 */
             }
+
+            h1 {
+                font-size: 1.5em; /* 제목 크기 조절 */
+                margin: 15px 0;
+            }
+
+            #searchContainer {
+                flex-direction: column; /* 검색창과 버튼을 세로로 배치 */
+                gap: 5px;
+            }
+            #searchBox, #searchBtn {
+                width: 100%; /* 검색창과 버튼이 전체 너비를 차지하도록 */
+            }
+        }
+
+        /* 더 작은 모바일 기기 (예: 480px 이하)를 위한 추가 조정 (선택 사항) */
+        @media (max-width: 480px) {
+            #mapContainer {
+                height: 300px; /* 더 작은 화면에서는 노선도 높이 더 줄이기 */
+            }
+            .line-timetable h3 {
+                font-size: 1em;
+            }
+            .line-timetable li {
+                font-size: 0.85em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>시간표</h1> <div id="mainContainer">
+        <div id="timetablePanel">
+            <div id="searchContainer">
+                <input type="text" id="searchBox" placeholder="노선 또는 정류장 검색">
+                <button id="searchBtn">검색</button>
+            </div>
+            <div id="timetableList">
+                <p>로딩 중...</p>
+            </div>
+        </div>
+
+        <div id="mapContainer">
+            <svg id="busMap"></svg>
+        </div>
+    </div>
+
+    <script src="app.js"></script> 
+</body>
+</html>
